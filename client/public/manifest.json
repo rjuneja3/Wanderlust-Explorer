@@ -1,7 +1,7 @@
 {
-  "name": "Web Application",
-  "short_name": "Web App",
-  "description": "An awesome web application!",
+  "name": "Wanderlust Explorer",
+  "short_name": "Wanderlust",
+  "description": "An awesome travel planner application!",
   "icons": [
     {
       "src": "favicon.ico",

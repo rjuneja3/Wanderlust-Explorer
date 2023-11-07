@@ -28,12 +28,12 @@ Clone the repository
 Go to the root of your repository's folder, and install all dependecies:
 
 > cd ~/Desktop/Wanderlust-Explorer<br />
-> npm install
-> cd ~~/Desktop/Wanderlust-Explorer/client
-> npm install
-> cd ..
-> cd ~~/Desktop/Wanderlust-Explorer/server
-> npm install
+> npm install<br />
+> cd ~~/Desktop/Wanderlust-Explorer/client<br />
+> npm install<br />
+> cd ..<br />
+> cd ~~/Desktop/Wanderlust-Explorer/server<br />
+> npm install<br />
 
 (Make sure you do npm install in server and client folder)
 
