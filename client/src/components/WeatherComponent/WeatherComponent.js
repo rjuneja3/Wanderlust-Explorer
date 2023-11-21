@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import GoogleMaps from '../GoogleMaps/GoogleMaps';
 import Wikipedia from '../Wikipedia/Wikipedia';
-
+import './WeatherComponent.css'; // Import the CSS file
 const Weather = () => {
   const [location, setLocation] = useState('');
   const [weatherData, setWeatherData] = useState(null);
@@ -23,7 +23,7 @@ const Weather = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">Weather Search</h1>
+      <h1 className="mb-4">Location Information Search</h1>
       <div className="input-group mb-3">
         <input
           type="text"
