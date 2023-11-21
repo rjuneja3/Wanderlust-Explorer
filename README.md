@@ -51,6 +51,16 @@ Update the Mongo DB URI in .env file
 From the `root` of your project run:
 > npm start
 
+## Make sure to run both to test Database Connection in the frontend. Use your keys here. 
+> # In server/.env
+> MONGO_URI = ""
+> OPEN_WEATHER_API_KEY = ""
+
+> # In client/.env
+> REACT_APP_BACKEND_URL = ""
+> REACT_APP_OPEN_WEATHER_API_KEY = ""
+> REACT_APP_GOOGLE_MAPS_API_KEY = ""
+
 #### OR
 
 Open terminal #1 (backend)
