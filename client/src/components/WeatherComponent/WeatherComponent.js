@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import GoogleMaps from '../GoogleMaps/GoogleMaps';
 
 const Weather = () => {
   const [location, setLocation] = useState('');
   const [weatherData, setWeatherData] = useState(null);
-  const apiKey = process.env.OPEN_WEATHER_API_KEY;
+  const apiKey = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 
   const handleSearch = async () => {
     try {
@@ -48,6 +49,7 @@ const Weather = () => {
             <p className="card-text">Temperature: {weatherData.main.temp} &#176;C</p>
             <p className="card-text">Weather: {weatherData.weather[0].description}</p>
           </div>
+          <GoogleMaps location={weatherData.coord} />
         </div>
       )}
     </div>
