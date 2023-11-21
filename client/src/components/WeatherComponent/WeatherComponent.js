@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import GoogleMaps from '../GoogleMaps/GoogleMaps';
+import Wikipedia from '../Wikipedia/Wikipedia';
 
 const Weather = () => {
   const [location, setLocation] = useState('');
@@ -50,6 +51,7 @@ const Weather = () => {
             <p className="card-text">Weather: {weatherData.weather[0].description}</p>
           </div>
           <GoogleMaps location={weatherData.coord} />
+          <Wikipedia locationName={weatherData.name} />
         </div>
       )}
     </div>

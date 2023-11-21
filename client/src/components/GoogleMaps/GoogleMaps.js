@@ -5,25 +5,28 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 const GoogleMaps = ({ google, location }) => {
   const mapStyles = {
-    width: '100%',
+    position: 'relative',
+    width: '80%',
     height: '300px',
   };
 
   return (
-    <Map
-      google={google}
-      zoom={14}
-      style={mapStyles}
-      initialCenter={{
-        lat: location.lat,
-        lng: location.lon,
-      }}
-    >
-      <Marker name={'Current Location'} position={{ lat: location.lat, lng: location.lon }} />
-    </Map>
+    <div class="maps-wrapper" style={{ position: 'relative', height:'350px' }}>
+        <Map
+        google={google}
+        zoom={8}
+        style={mapStyles}
+        initialCenter={{
+            lat: location.lat,
+            lng: location.lon,
+        }}
+        >
+        <Marker name={'Current Location'} position={{ lat: location.lat, lng: location.lon }} />
+        </Map>
+    </div>
   );
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAF2kLryoYM9WqnKFeWiGBzqnNoW15qxw4',
+  apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
 })(GoogleMaps);
