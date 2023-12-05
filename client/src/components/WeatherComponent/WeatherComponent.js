@@ -5,22 +5,25 @@ import axios from 'axios';
 import GoogleMaps from '../GoogleMaps/GoogleMaps';
 import Wikipedia from '../Wikipedia/Wikipedia';
 import './WeatherComponent.css'; // Import the CSS file
+import WeatherObserver from './WeatherObserver';
+import WeatherSubject from './WeatherSubject';
+
 const Weather = () => {
   const [location, setLocation] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const apiKey = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
-
+  const weatherSubject = new WeatherSubject();
   const handleSearch = async () => {
     try {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`
       );
       setWeatherData(response.data);
+      weatherSubject.notifyObservers(response.data);
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
   };
-
   return (
     <div className="container mt-5">
       <h1 className="mb-4">Location Information Search</h1>
@@ -45,11 +48,7 @@ const Weather = () => {
 
       {weatherData && (
         <div className="card">
-          <div className="card-body">
-            <h2 className="card-title">Weather for {weatherData.name}</h2>
-            <p className="card-text">Temperature: {weatherData.main.temp} &#176;C</p>
-            <p className="card-text">Weather: {weatherData.weather[0].description}</p>
-          </div>
+        <WeatherObserver weatherData={weatherData}/>
           <GoogleMaps location={weatherData.coord} />
           <Wikipedia locationName={weatherData.name} />
         </div>
